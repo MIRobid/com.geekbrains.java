@@ -16,6 +16,7 @@ public class MyServer {
 
     public MyServer() {
         try (ServerSocket server = new ServerSocket(PORT)) {
+            server.setSoTimeout(3000);
             authService = new BaseAuthService();
             authService.start();
             clients = new ArrayList<>();
